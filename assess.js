@@ -3,6 +3,8 @@
 //   .then((response) => response.json())
 //   .then((json) => console.log(json));
 
+
+
 //   //posting a resource
 //   fetch('https://jsonplaceholder.typicode.com/posts', {
 //   method: 'POST',
@@ -121,6 +123,7 @@ async function patchProduct (){
 }
 
 patchProduct();
+
 //   //deleting a resource
 //   fetch('https://jsonplaceholder.typicode.com/posts/1', {
 //   method: 'DELETE',
@@ -143,3 +146,44 @@ console.log(error);
 }
 
 deleteProduct();
+
+// // This is equivalent to /comments?postId=1
+// fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
+
+const url3 = 'https://jsonplaceholder.typicode.com/posts/1/comments';
+
+async function listProduct (){
+      try {
+      let result = await fetch(url3)
+      let products = await result.json()
+      console.log(`Has listed the products `);
+      console.log(products);
+      } catch (error) {
+      console.log(error);
+      }
+}
+
+listProduct();
+
+// // This will return all the posts that belong to the first user
+// fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
+// This will return all the posts that belong to the first user
+
+const url4 = 'https://jsonplaceholder.typicode.com/posts?userId=1';
+
+async function filterProduct (){
+      try {
+      let result = await fetch(url4)
+      let products = await result.json()
+      console.log(`Has filtered the products through the query parameter `);
+      console.log(products);
+      } catch (error) {
+      console.log(error);
+      }
+}
+
+filterProduct();
